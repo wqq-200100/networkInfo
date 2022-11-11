@@ -10,7 +10,8 @@ import * as echarts from 'echarts'
 let myChart = null
 const myChartRef = $ref()
 const props =  defineProps({
-  dataList:[]
+  dataList:[],
+  bgColor:[]
 })
 
 const dataList = props.dataList;
@@ -59,7 +60,7 @@ const option = {
   series: [
     {
       type: 'pie',
-      color: ['#4D88FE', '#50CCCB', '#FFBF3C'],
+      color: props.bgColor,
       radius: '70%',
       left: 'center',
       data: dataList,

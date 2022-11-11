@@ -2,7 +2,7 @@
   <div class="system-title">IP信息</div>
   <div class="ipMeg">
     <div>
-      <div class="play" v-for="item in ipDate">
+      <div class="play" v-for="item in props.ipDate">
         <div class="sumIP">
           <div class="chart">
             <img :src="item.url" alt="">
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="ipCharts">
-      <bing :dataList="dataList" style="width: 200px;height: 150px;"/>
+      <bing :dataList="props.dataList" :bgColor=props.bgColor style="width: 200px;height: 150px;"/>
     </div>
   </div>
 </template>
@@ -24,18 +24,12 @@ import ip from "../assets/image/IP.png";
 import duigou from "../assets/image/duigou.png";
 import bing from "../charts/bing.vue";
 
+const props = defineProps({
+  ipDate:[],
+  dataList:[],
+  bgColor:[]
+})
 
-const ipDate = $ref([
-  {url: zongbu, name: '总IP', num: 1239},
-  {url: ip, name: '分配IP', num: 8867},
-  {url: duigou, name: '使用IP', num: 335},
-])
-
-const dataList = $ref([
-  {value: 1048, name: '联通'},
-  {value: 735, name: '电信'},
-  {value: 580, name: '移动'},
-]);
 </script>
 
 <style scoped lang="scss">

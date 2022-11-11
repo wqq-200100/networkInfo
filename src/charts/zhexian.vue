@@ -16,6 +16,10 @@ const props = defineProps({
     bg1:'',
     bg2:''
   },
+  data:{
+    data1:[],
+    data2:[]
+  }
 })
 
 const option = {
@@ -100,7 +104,7 @@ const option = {
       showSymbol: false, // 数据标点
       smooth: true, // 是否曲线
       name: '上行', // 图例对应类别
-      data: [20000, 20000, 60000], // 纵坐标数据
+      data: props.data.data1, // 纵坐标数据
       areaStyle: { // 区域颜色
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
           offset: 0,
@@ -115,7 +119,7 @@ const option = {
       smooth: true,
       showSymbol: false,
       name: '下行',
-      data: [56300, 64040, 70000],
+      data: props.data.data2,
       areaStyle: {
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
           offset: 0,
